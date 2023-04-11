@@ -65,3 +65,19 @@ function getObjectFromLocal(key) {
     response = prevArr ? JSON.parse(prevArr) : []
     return console.log(response);
 }
+
+
+function saveToLocalStorage(obj) {
+    for (let prop in obj) {
+        localStorage.setItem(prop, obj[prop]);
+    }
+    const newObj = {};
+    for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        newObj[key] = localStorage.getItem(key);
+    }
+    return newObj;
+}
+const myObj = { name: "John", age: 30, city: "New York" };
+const savedObj = saveToLocalStorage(myObj);
+console.log(savedObj);
