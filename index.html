@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="app.js" defer></script>
 </head>
+
 <body id="body">
     <button onclick="addObj() ,saveObjectToLocal('my obj', persons)">Add Person</button>
+    <button onclick="getObjectFromLocal('my obj')">Get Local</button>
     <button onclick="addPara(prompt('Enter Para Text'))">Add Para</button>
     <button class="pop" onclick="addListItem(prompt('Enter List Item'))">Add List</button>
     <button onclick="changeBg('body', '#222')">ChangeBg</button>
     <ul>
     </ul>
 </body>
+<script src="app.js"></script>
+
 </html>

@@ -43,7 +43,7 @@ function changeBg(target, color) {
     subject.style.backgroundColor = color
 }
 
-var persons = []
+var response = []
 function addObj() {
     var person = {
         name: prompt("Enter Person's Name."),
@@ -51,8 +51,8 @@ function addObj() {
         profession: prompt("Enter his Profession."),
         language: prompt("Enter his Language")
     }
-    persons.push(person)
-    console.log(persons)
+    response.push(person)
+    console.log(response)
 }
 function saveObjectToLocal(storeWithName, objName) {
     var stringify = JSON.stringify(objName);
@@ -60,12 +60,8 @@ function saveObjectToLocal(storeWithName, objName) {
 }
 
 
-
 function getObjectFromLocal(key) {
-    var getJson = localStorage.getItem(key)
-    if (!getJson) {
-        return null;
-    }
-    return JSON.parse(getJson);
+    var prevArr = localStorage.getItem(key)
+    response = prevArr ? JSON.parse(prevArr) : []
+    return console.log(response);
 }
-console.log(getObjectFromLocal("my obj"))
