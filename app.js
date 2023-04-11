@@ -1,9 +1,9 @@
-function foo() {
-    return function (num) {
-        return 5 + num;
+function foo(num1) {
+    return function (num2) {
+        return num1 + num2;
     }
 }
-console.log(foo()(15));
+console.log(foo(3)(15));
 
 
 var arr = ["eg1", "eg2", "eg3"];
@@ -39,37 +39,33 @@ function addListItem(innerList) {
 
 
 function changeBg(target, color) {
-    if (target.includes("#")) {
-        var subject = document.getElementById(target);
-    } else if (target.includes(".")) {
-        var subject = document.getElementsByClassName(target)[0];
-    } else {
-        var subject = document.getElementsByTagName(target)[0];
-    }
-    var bgColor = window.getComputedStyle(subject).backgroundColor;
-    if (bgColor == "rgb(34, 34, 34)") {
-        (function resetBg() {
-            subject.style.backgroundColor = '#fff';
-            subject.style.color = '#222';
-        })();
-    } else {
-        subject.style.backgroundColor = color;
-        subject.style.color = '#fff';
-    }
+    var subject = document.getElementById(target);
+    subject.style.backgroundColor = color
 }
 
-
-function addStudent(storeKey, storeObj) {
-    var json = JSON.stringify(storeObj);
-    localStorage.setItem(storeKey, json);
+var persons = []
+function addObj() {
+    var person = {
+        name: prompt("Enter Person's Name."),
+        age: +prompt("Enter his Age."),
+        profession: prompt("Enter his Profession."),
+        language: prompt("Enter his Language")
+    }
+    persons.push(person)
+    console.log(persons)
 }
+function saveObjectToLocal(storeWithName, objName) {
+    var stringify = JSON.stringify(objName);
+    localStorage.setItem(storeWithName, stringify);
+}
+
 
 
 function getObjectFromLocal(key) {
-    var getJson = localStorage.getItem(key);
+    var getJson = localStorage.getItem(key)
     if (!getJson) {
         return null;
     }
     return JSON.parse(getJson);
 }
-console.log(getObjectFromLocal("students"))
+console.log(getObjectFromLocal("my obj"))
